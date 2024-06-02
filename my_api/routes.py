@@ -24,7 +24,7 @@ def handle_brand(id):
         brand.name = request.json['name']
         db.session.commit()
         return jsonify({'message': 'Brand updated successfully'})
-    if request.method == 'DELETE':
+    if request.method == 'DELETE']:
         db.session.delete(brand)
         db.session.commit()
         return jsonify({'message': 'Brand deleted successfully'})
@@ -32,7 +32,7 @@ def handle_brand(id):
 # Category transactions
 @api.route('/categories', methods=['GET', 'POST'])
 def handle_categories():
-    if request.method == 'GET':
+    if request.method == 'GET']:
         categories = Category.query.all()
         return jsonify([category.name for category in categories])
     if request.method == 'POST':
@@ -44,11 +44,11 @@ def handle_categories():
 @api.route('/categories/<int:id>', methods=['PUT', 'DELETE'])
 def handle_category(id):
     category = Category.query.get_or_404(id)
-    if request.method == 'PUT':
+    if request.method == 'PUT']:
         category.name = request.json['name']
         db.session.commit()
         return jsonify({'message': 'Category updated successfully'})
-    if request.method == 'DELETE':
+    if request.method == 'DELETE']:
         db.session.delete(category)
         db.session.commit()
         return jsonify({'message': 'Category deleted successfully'})
@@ -56,7 +56,7 @@ def handle_category(id):
 # ProductType transactions
 @api.route('/product_types', methods=['GET', 'POST'])
 def handle_product_types():
-    if request.method == 'GET':
+    if request.method == 'GET']:
         product_types = ProductType.query.all()
         return jsonify([product_type.name for product_type in product_types])
     if request.method == 'POST':
@@ -68,11 +68,11 @@ def handle_product_types():
 @api.route('/product_types/<int:id>', methods=['PUT', 'DELETE'])
 def handle_product_type(id):
     product_type = ProductType.query.get_or_404(id)
-    if request.method == 'PUT':
+    if request.method == 'PUT']:
         product_type.name = request.json['name']
         db.session.commit()
         return jsonify({'message': 'ProductType updated successfully'})
-    if request.method == 'DELETE':
+    if request.method == 'DELETE']:
         db.session.delete(product_type)
         db.session.commit()
         return jsonify({'message': 'ProductType deleted successfully'})
@@ -80,10 +80,10 @@ def handle_product_type(id):
 # ProductName transactions
 @api.route('/product_names', methods=['GET', 'POST'])
 def handle_product_names():
-    if request.method == 'GET':
+    if request.method == 'GET']:
         product_names = ProductName.query.all()
         return jsonify([product_name.name for product_name in product_names])
-    if request.method == 'POST':
+    if request.method == 'POST']:
         new_product_name = ProductName(
             name=request.json['name'],
             brand_id=request.json['brand_id'],
@@ -97,14 +97,14 @@ def handle_product_names():
 @api.route('/product_names/<int:id>', methods=['PUT', 'DELETE'])
 def handle_product_name(id):
     product_name = ProductName.query.get_or_404(id)
-    if request.method == 'PUT':
+    if request.method == 'PUT']:
         product_name.name = request.json['name']
         product_name.brand_id = request.json['brand_id']
         product_name.category_id = request.json['category_id']
         product_name.product_type_id = request.json['product_type_id']
         db.session.commit()
         return jsonify({'message': 'ProductName updated successfully'})
-    if request.method == 'DELETE':
+    if request.method == 'DELETE']:
         db.session.delete(product_name)
         db.session.commit()
         return jsonify({'message': 'ProductName deleted successfully'})

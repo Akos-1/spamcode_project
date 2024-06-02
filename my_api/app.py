@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-from __init__ import create_app
+from my_api import create_app
 
 app = create_app()
 
